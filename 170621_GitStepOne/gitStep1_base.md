@@ -47,13 +47,14 @@
 
 这时你可能遇到这些问题
 
-1. 在你发布新的章节的时候，并不想把写到一半的文章一并发布出去。
+1. 在你发布新的章节的时候，并不想把写到一半的文章一并发布出去。
 
-1. 在你正在修改 1000 - 2000 章剧情细节的时候，出版社正要你的初稿。
+1. 在你正在修改 1000 - 2000 章剧情细节的时候，出版社正要你的初稿。
 
 1. ...
 
-> 穿行于不同的世界线之间，这一切都是命运石之门的选择
+
+这就是分支的能力，让你穿行于不同的世界线之间，这一切都是命运石之门的选择。
 
 ---
 
@@ -78,7 +79,8 @@
 ```
 ## 安装
 
-
+- Mac 自带 Git
+- [Windows msysgit](https://git-for-windows.github.io/)
 
 ## 基本命令
 
@@ -92,16 +94,12 @@
 
 ### 3. `git add <fileName>` 将文件添加到版本库中
 
-#### 回退：
-  - `git reset (--mixed) HEAD <fileName>`
-  - `git rm --cached <fileName>`
+添加所有更改 `git add .` / `git add *`
 
-添加许多文件 `git add .` / `git add *`
+#### 回退：   
+  - `git rm (-r) --cached <fileName>` -r 允许递归删除
+  - `git reset (--mixed)`  
 
-回退：
-  - `git reset HEAD .`
-  - `git rm -r --cached .` -r 允许递归删除
-  - `git reset --mixed`
 
 
 ### 4. `git commit` 将暂存区的代码提交到版本库中
@@ -129,8 +127,8 @@ $ git commit --amend -m "add Branch.md"
   - `git reset --head HEAD^` 取消工作区文件修改，取消 git add，取消 git commit
 
 ^ 与 ~ 延伸阅读：
-[git寻根——^和~的区别](http://mux.alimama.com/posts/799)
-[stackoverflow](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
+- [git寻根——^和~的区别](http://mux.alimama.com/posts/799)
+- [stackoverflow](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
 
 #### 如果想要唤醒你常用的编辑器进行编辑需要进行配置
 
@@ -139,11 +137,11 @@ $ git commit --amend -m "add Branch.md"
   1. 首先将你的编辑器添加到环境变量中
   eg: `我的电脑` - `右键属性` - `左侧高级系统设置` - `环境变量` - `PATH` 中添加 `D:\software\work\Microsoft VS Code\bin`
   
-  2. 命令行执行 `git config core.editor code[sublime][atom]...`
+  2. 命令行执行 `git config core.editor code[subl][atom]...`
 
 - OSX
-  1. 添加环境变量
-  2. 命令行执行 `git config core.editor code[sublime][atom]...`
+  1. 添加编辑器的命令
+  2. 命令行执行 `git config core.editor code[subl][atom]...`
 
 
 没有改变文件关闭编辑模式，则会取消这次提交。
@@ -155,17 +153,17 @@ $ git commit --amend -m "add Branch.md"
 #### 回退：
   1. 删除动作 `git rm` 未提交：
     
-    ```
-    git reset HEAD hello.sh
-    git checkout -- <fileName>
-    ```
+  ```
+  git reset HEAD hello.sh
+  git checkout -- <fileName>
+  ```
   
   2. 删除动作 `git rm` 已经提交: 
     
-    ```
-    git reset HEAD^ hello.sh
-    git checkout -- <fileName>
-    ```
+  ```
+  git reset HEAD^ hello.sh
+  git checkout -- <fileName>
+  ```
 
 #### 对修改了但未提交到版本库（HEAD）中的文件进行删除
   
