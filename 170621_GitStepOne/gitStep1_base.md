@@ -14,7 +14,7 @@
 
 虽然集中式和分布式是区分 svn 和 git 的最大特点，但却不是我们选择 git 作版本管理工具的最重要的原因。
 
-## 分支
+## 分支能解决的问题
 
 方便的分支操作才是！而且我们早就在用啦！
 
@@ -62,7 +62,8 @@
 > 在我们拥有五维能力之前，让我们先回顾一下我们的四维能力 
 
 ```
-    工作目录     |   暂存区 stage  |         HEAD        |  远程服务器
+                本地(local)/当前(current)版本库          | 远程版本库（remote repository）
+    工作目录     |  暂存区 staged  |         HEAD        |  远程服务器
                add            commit                  push
              ----->           ----->                 ----->
    
@@ -76,19 +77,17 @@
   <--------------------------------           
 ```
 
-## 简单命令
+## 基本命令
 
-`暂存区 staged` ``
+### 1. `git status` 查看版本库的当前状态
 
-### `git status` 查看版本库的当前状态
-
-### `git init` 创建版本库
+### 2. `git init` 创建版本库
 
 创建唯一一个`.git` 隐藏文件夹在项目的顶层目录
 
 #### 回退: `rm -rf .git`
 
-### `git add <fileName>` 将文件添加到版本库中
+### 3. `git add <fileName>` 将文件添加到版本库中
 
 #### 回退：
   - `git reset (--mixed) HEAD <fileName>`
@@ -102,12 +101,12 @@
   - `git reset --mixed`
 
 
-## `git commit` 将暂存区的代码提交到版本库中
+### 4. `git commit` 将暂存区的代码提交到版本库中
 
-### `-m` 提交信息 
+#### `-m` 提交信息 
 每次提交都需要输入提交的信息，`git commit -m "message"`, 如果你需要输入更为详细的信息，则直接输入 `git commit` 会唤醒 `vi`
 
-### `--amend` 修改上次提交信息
+#### `--amend` 修改上次提交信息
 
 ```
 $ git add README.md
@@ -121,15 +120,16 @@ $ git commit --amend -m "add Branch.md"
 
 如果只想修改提交的描述信息，直接使用 `git commit --amend` 即可。
 
-
-### 回退：
+#### 回退：
   - `git reset --soft HEAD^` 保留工作区文件，保留 git add，取消 git commit
   - `git reset (--mixed) HEAD^` 保留工作区文件，取消 git add，取消 git commit
   - `git reset --head HEAD^` 取消工作区文件修改，取消 git add，取消 git commit
 
-HEAD^ 代表上一次，也可以写成 HEAD^1/HEAD~1，如果回退两次之前可以写成 HEAD^2/HEAD~2
+^ 与 ~ 延伸阅读：
+[git寻根——^和~的区别](http://mux.alimama.com/posts/799)
+[stackoverflow](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
 
-### 如果想要唤醒你常用的编辑器进行编辑需要进行配置
+#### 如果想要唤醒你常用的编辑器进行编辑需要进行配置
 
 - Windows
 
@@ -147,17 +147,63 @@ HEAD^ 代表上一次，也可以写成 HEAD^1/HEAD~1，如果回退两次之前
 
 > Aborting commit due to empty commit message.
 
-### git push
+### 5. `git rm` 从版本库中删除文件
 
-回退：git revert <SHA>
-## git rm
+#### 回退：
+  1. 删除动作 `git rm` 未提交：
+    
+    ```
+    git reset HEAD hello.sh
+    git checkout -- <fileName>
+    ```
+  
+  2. 删除动作 `git rm` 已经提交: 
+    
+    ```
+    git reset HEAD^ hello.sh
+    git checkout -- <fileName>
+    ```
 
-## git mv
+#### 对修改了但未提交到版本库（HEAD）中的文件进行删除
+  
+  1. `git rm -f <filename>` 强制删除
+  2. `git rm -cached <filename>` 删除版本库中的索引，但保留实际文件
 
-### `git log` 查看 commit 日志，可以添加文件名来查看某一个文件的提交信息
 
-### `git show` 查看修改的详细信息
+#### 对未添加到暂存区的文件进行删除，则使用系统自带的 `rm -rf` 命令
 
+### 6. `git mv` 移动/重命名
+
+想当与 `git rm` 之后再创建一个新的文件。我们需要对新的文件使用 `git add` 后方能提交（commit）
+
+### 7. `git log` 从新到旧查看 commit 日志，
+
+可以添加文件名来查看某一个文件的提交信息
+
+```
+commit 8ee969d5a80a73d76c17bdb5cbe1312a086ebeff   - 提交码
+Author: suikafan <406279919@qq.com>               - 作者
+Date:   Tue Jun 20 15:05:58 2017 +0800            - 提交日期
+
+    devide file                                   - 提交信息
+```
+
+#### --pretty=oneline
+
+信息已单行显示
+
+### 8. `git show 提交码` 查看修改的详细信息
+
+```
+git show 8ee969d5a80a73d76c17bdb5cbe1312a086ebeff
+```
+
+### 9. `git diff` 查看提交之间的区别
+
+- `git diff 提交码1 提交码2` 比较两次提交间的区别
+- `git diff 提交码1` 比较提交和当前缓存区的区别
+
+--- 
 
 > 想要更懒
 
@@ -169,3 +215,4 @@ HEAD^ 代表上一次，也可以写成 HEAD^1/HEAD~1，如果回退两次之前
 - Github入门与实践(svn)
 - [关于reset](http://blog.csdn.net/w958796636/article/details/53611133)
 - [如何在 Git 里撤销(几乎)任何操作](http://blog.jobbole.com/87700/)
+
