@@ -76,6 +76,9 @@
                             reset(hard)
   <--------------------------------           
 ```
+## 安装
+
+
 
 ## 基本命令
 
@@ -188,6 +191,10 @@ Date:   Tue Jun 20 15:05:58 2017 +0800            - 提交日期
     devide file                                   - 提交信息
 ```
 
+#### --graph
+
+以图表形式查看日志
+
 #### --pretty=oneline
 
 信息已单行显示
@@ -209,6 +216,8 @@ git show 8ee969d5a80a73d76c17bdb5cbe1312a086ebeff
 
 ## exLink
 
+- [cmder(windows)](http://cmder.net/)
+- [fish shell(OSX)](https://www.fishshell.com/)
 - [Git 简明指南](https://rogerdudler.github.io/git-guide/index.zh.html)
 - [廖雪峰 - Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
