@@ -195,7 +195,9 @@ Date:   Tue Jun 20 15:05:58 2017 +0800            - 提交日期
 
 #### --pretty=oneline
 
-信息已单行显示
+信息以单行显示
+
+`git log <filename>` 查看单个文件或目录的提交日志
 
 ### 8. `git show 提交码` 查看修改的详细信息
 
@@ -203,10 +205,43 @@ Date:   Tue Jun 20 15:05:58 2017 +0800            - 提交日期
 git show 8ee969d5a80a73d76c17bdb5cbe1312a086ebeff
 ```
 
+如果你想查看上一次提交的信息可以用 HEAD 代替提交码
+
+```
+git show HEAD^
+git show HEAD^1
+```
+
 ### 9. `git diff` 查看提交之间的区别
 
 - `git diff 提交码1 提交码2` 比较两次提交间的区别
 - `git diff 提交码1` 比较提交和当前缓存区的区别
+
+也可以用 HEAD 查看区别
+
+``` bash
+eg: 这个版本与上上次版本的区别
+
+git diff HEAD HEAD^2
+```
+
+## 查看更多命令参数
+
+有的时候我们不太记得我们想使用的命令所带的参数了，可以使用 `git commit -h/-help` 查询
+
+eg:
+
+``` bash
+usage: git log [<options>] [<revision-range>] [[--] <path>...]
+   or: git show [<options>] <object>...
+
+    -q, --quiet           suppress diff output
+    --source              show source
+    --use-mailmap         Use mail map file
+    --decorate[=...]      decorate options
+    -L <n,m:file>         Process line range n,m in file, counting from 1
+```
+
 
 --- 
 
