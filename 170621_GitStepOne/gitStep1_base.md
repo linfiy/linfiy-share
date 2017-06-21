@@ -175,7 +175,7 @@ $ git commit --amend -m "add Branch.md"
 
 ### 6. `git mv` 移动/重命名
 
-想当与 `git rm` 之后再创建一个新的文件。我们需要对新的文件使用 `git add` 后方能提交（commit）
+想当与 `git rm` 之后再创建一个新的文件。不需要 `git add`，可直接提交
 
 ### 7. `git log` 从新到旧查看 commit 日志，
 
@@ -214,12 +214,39 @@ git show 8ee969d5a80a73d76c17bdb5cbe1312a086ebeff
 
 ## exLink
 
-- [cmder(windows)](http://cmder.net/)
-- [fish shell(OSX)](https://www.fishshell.com/)
-- [Git 简明指南](https://rogerdudler.github.io/git-guide/index.zh.html)
-- [廖雪峰 - Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+* shell 相关
+  
+  - [Cmder(Windows)](http://cmder.net/)
+  - [fish shell(OSX)](https://www.fishshell.com/)
+  - PowerShell(Windows)
+    
+    `win` + `r` 输入 powershell
+  
+  - [git-shell](https://desktop.github.com/) 
+  
+    安装完github桌面版会自动出现一个 git-shell。是基于 powerShell 的。`集成了 Git` 命令。下着比较慢需要耐心。
+  - [Git Bash(Windows)](https://git-for-windows.github.io/)
+    `集成 git`
 
-- Github入门与实践(svn)
-- [关于reset](http://blog.csdn.net/w958796636/article/details/53611133)
-- [如何在 Git 里撤销(几乎)任何操作](http://blog.jobbole.com/87700/)
+* [Git GUI](https://git-scm.com/downloads/guis/)
+
+
+* 在线教程
+  - [Git 简明指南](https://rogerdudler.github.io/git-guide/index.zh.html)
+  - [廖雪峰 - Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+  - [runoob - Git 教程](http://www.runoob.com/git/git-tutorial.html)
+  - [udacity](https://cn.udacity.com/courses/all)
+    搜索 git
+
+* 书籍
+  - [Git Pro 中文版](http://iissnan.com/progit/)
+  - [Git Pro 英文版](https://git-scm.com/book/en/v2) 
+  
+    左侧可以选择语言，排版没有上面的中文版好看 
+  
+  - Github入门与实践(svn)
+
+* 其他
+  - [关于 git reset 相关参数的区别说明](http://blog.csdn.net/w958796636/article/details/53611133)
+  - [如何在 Git 里撤销(几乎)任何操作](http://blog.jobbole.com/87700/)
 
