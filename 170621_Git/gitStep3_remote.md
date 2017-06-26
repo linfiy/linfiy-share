@@ -119,15 +119,54 @@ $(master) git remote add origin FOO.git
 eg:
 
 ``` bash
-$(master) git checkout b1
+$(master) git checkout -b b1
 $(b1) git push origin b1
+
+$(b1) git branch -a
+
+* b1
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/b1
+  remotes/origin/master
+
 ```
 
 #### 删除远程分支
 
+eg:
 
-### 新建远程分支
-### 拉取本地不存在的远程分支
+``` bash
+$(b1) git push origin --delete b1
+$(b1) git branch -a
+
+* b1
+  master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+```
+
+如果你只删除远程分支而不删除本地分支，那么本地的分支修改回保存到工作目录中。
+
+``` bash
+$(b1) git status
+On branch b1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   gitStep3_remote.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+[删除本地分支](./gitStep2_branch.md/#delete_branch)
+
+#### 拉取本地不存在的远程分支
+
+
+
+
 ### `git push --delete <branchName>` 删除远程分支
 
 
