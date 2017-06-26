@@ -274,6 +274,7 @@ usage: git log [<options>] [<revision-range>] [[--] <path>...]
     搜索 git
 
 * 书籍
+  - [git-recipes](https://github.com/geeeeeeeeek/git-recipes/wiki)
   - [Git Pro 中文版](http://iissnan.com/progit/)
   - [Git Pro 英文版](https://git-scm.com/book/en/v2) 
   
