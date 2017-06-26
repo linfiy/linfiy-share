@@ -99,15 +99,31 @@ $ git clone git:aaaxxx:/projectName.git <newProjectName>
 ## 将本地已有的工作目录推送到远程版本库作为初始化的版本
 
 ``` bash
-git init
-git add .
-git commit -m "init a project"
-git remote add origin FOO.git
+$ git init
+$(master) git add .
+$(master) git commit -m "init a project"
+$(master) git remote add origin FOO.git
 ```
 
 ### `git push` 将自己的版本库推送到服务器
 
 ### `git pull` 将远程版本库的某个分支拉到本地
+
+
+### 关于分支
+
+#### 新建远程分支
+
+先在本地创建分支，再推送到远程版本库
+
+eg:
+
+``` bash
+$(master) git checkout b1
+$(b1) git push origin b1
+```
+
+#### 删除远程分支
 
 
 ### 新建远程分支
