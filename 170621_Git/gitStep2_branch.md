@@ -14,9 +14,8 @@
 
 * 每一个分支可以代表单个贡献者的工作。另一个分支——“集成”分支——可以专门用于凝聚力量。
 
-* 
-
 > 《Git 版本控制管理（第二版）》
+
 ## 命令
 
 ### 1. 查看分支
@@ -176,8 +175,8 @@ eg: [exlink](https://stackoverflow.com/questions/2221658/whats-the-difference-be
 
 - `topic`
 - `dev` 开发版 - `15.6-dev`
-`stable` 稳定版 - `0.5-stable`
-`bug`
-`test`
-`feature` 特性
-`patch` 补丁
+- `stable` 稳定版 - `0.5-stable`
+- `bug`
+- `test`
+- `feature` 特性
+- `patch` 补丁
