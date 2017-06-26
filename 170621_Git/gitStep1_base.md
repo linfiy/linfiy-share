@@ -1,4 +1,4 @@
-# Git - Step One
+# Git - Step 1
 
 版本管理工具
 

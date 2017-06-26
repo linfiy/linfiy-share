@@ -41,8 +41,8 @@
 ps: 不能删除当前分支
 
 ``` bash
-$(branch1) git branch -D <branchName>
-# error: Cannot delete the branch 'branchName' which you are currently on.
+$(b1) git branch -D b1
+# error: Cannot delete the branch 'b1' which you are currently on.
 ```
 
 
