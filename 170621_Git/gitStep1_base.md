@@ -121,6 +121,10 @@ $ git commit --amend -m "add Branch.md"
 
 如果只想修改提交的描述信息，直接使用 `git commit --amend` 即可。
 
+#### `-a` 将没有提交到暂存区中的工作目录中的修改一并提交到暂存区
+
+`git commit -a -m "commit message"`
+
 #### 回退：
   - `git reset --soft HEAD^` 保留工作区文件，保留 git add，取消 git commit
   - `git reset (--mixed) HEAD^` 保留工作区文件，取消 git add，取消 git commit
@@ -271,7 +275,7 @@ usage: git log [<options>] [<revision-range>] [[--] <path>...]
   - [廖雪峰 - Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
   - [runoob - Git 教程](http://www.runoob.com/git/git-tutorial.html)
   - [udacity](https://cn.udacity.com/courses/all)
-    搜索 git
+    [阮一峰 - Git 相关文章](http://www.ruanyifeng.com/blog/search.html?cx=016304377626642577906%3Ab_e9skaywzq&cof=FORID%3A11&ie=UTF-8&q=git&sa.x=0&sa.y=0)
 
 * 书籍
   - [git-recipes](https://github.com/geeeeeeeeek/git-recipes/wiki)
