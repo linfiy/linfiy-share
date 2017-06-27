@@ -167,7 +167,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 [删除本地分支](./gitStep2_branch.md/#delete_branch)
 
 #### 拉取本地不存在的远程分支
-
 ``` bash
 $(master) git checkout -b b1
 $(b1) git pull origin b1
@@ -264,6 +263,7 @@ $ git push <远程主机名> <本地分支名>:<远程分支名>
 - gitignore
   * [自动生成 gitignore](https://www.gitignore.io/)
   * [How to use Git for Unity source control? - stackoverflow](https://stackoverflow.com/questions/18225126/how-to-use-git-for-unity-source-control)
+
 
 
 
