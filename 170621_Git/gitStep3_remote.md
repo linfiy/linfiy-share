@@ -30,7 +30,10 @@ $ ssh-keygen -t rsa -C "youremail@example.com” -f ~/.ssh/newName_rsa
 
 ``` bash
 # id_rsa.pub
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcN2Eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/f/JyLu/v+c/0faYZM+aq6VWeZQo7UbC1lQKgezKJiHwEExhPsiqo68YdWeL4yqWlZrsNw3qGhcWfyv6RAmlsmumiB+M+g62EVThHv65P9SxHvWpMyXuZvp6jnj0sCbkQnRxLmhNF4lnFgdnihFRh5/02p5bwGQ8gRIycj0oDgEeE84toqLCHy7NgW6JU9E9K/dD9wm/8N8cWC48/0R5KkItAfrbLpKaTooYjuKN3U3PMptGt4i6ASxC0sTCk4LaP35s5RDTDnmDVf4vVwLHcDTmLkD9+taWgl4koG5 fsm114000@163.com
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcN2Eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/f/JyLu/v+c/0faYZM
++aq6VWeZQo7UbC1lQKgezKJiHwEExhPsiqo68YdWeL4yqWlZrsNw3qGhcWfyv6RAmlsmumiB+M
++g62EVThHv65P9SxHvWpMyXuZvp6jnj0sCbkQnRxLmhNF4lnFgdnihFRh5/02p5bwGQ8gRIycj0oDgEeE84toqLCHy7NgW6JU9E9K/dD9wm/8N8cWC48
+/0R5KkItAfrbLpKaTooYjuKN3U3PMptGt4i6ASxC0sTCk4LaP35s5RDTDnmDVf4vVwLHcDTmLkD9+taWgl4koG5 fsm114000@163.com
 ```
 
 eg: 将公钥保存到 github 上
@@ -42,6 +45,8 @@ eg: 将公钥保存到 github 上
 ### [管理多个SSH-key](https://my.oschina.net/stefanzhlg/blog/529403)
 
 ## 远程项目 remote
+
+<img src="./images/bg2014061202.jpg" style="width: 100%">
 
 ### 源头 `.git`
 
@@ -55,44 +60,39 @@ eg: 将公钥保存到 github 上
 
 1. `.gitignore`
 
-* 空行会被忽略，以 `#` 开头的行可以用于注释。然而如果 `#` 跟在其他文本后面就表示注释了。
-* 一个简单的字面文件名会匹配任意目录下的同名文件
-* 目录名由末尾的反斜线 `/` 标记。这能匹配同名的目录和子目录。但不匹配文件的连接或符号
-* 包含 shell 通配符，如 `*` 号，这种模式可扩展为 shell 通配模式。正如标准的 shell  
+  * 空行会被忽略，以 `#` 开头的行可以用于注释。然而如果 `#` 跟在其他文本后面就表示注释了。
+  * 一个简单的字面文件名会匹配任意目录下的同名文件
+  * 目录名由末尾的反斜线 `/` 标记。这能匹配同名的目录和子目录。但不匹配文件的连接或符号
+  * 包含 shell 通配符，如 `*` 号，这种模式可扩展为 shell 通配模式。正如标准的 shell  
 
 2. `README.md`
 
-每个项目的跟目录下必须要有一个 `README.md` 文件（尤其是开源项目，你必须让使用你项目的人知道你的开源项目协议），
-`README.md` 要以精简的方式向用户传递信息，帮助他们运行并配置你的程序。关于 readme 的写法参考放在的文末。
+  每个项目的跟目录下必须要有一个 `README.md` 文件（尤其是开源项目，你必须让使用你项目的人知道你的开源项目协议），
+  `README.md` 要以精简的方式向用户传递信息，帮助他们运行并配置你的程序。关于 readme 的写法参考放在的文末。
 
 ## 命令
 
-```
-local  | remote
-                        
-  add remote
-    ------>           创建 
-      clone
-    <------           
+ps: 关于其他几个远程命令（remote, fetch）本文没有详述，请参考文末的[链接](#ex-link)
 
-      push
-      ----->          更新
-      pull
-    <------
-```
-
-### `git ls-remote FOO.git` 显示一个远程版本库的引用列表
+### 1. `git ls-remote` 显示版本库的引用列表
 
 可以用来查看项目是否有更新，如果不加版本库的地址，则显示与本地版本对用的远程版本库的地址
 
 eg:
 
+查看 github 上 Vue 的引用列表
+
 ``` bash
-$ git ls-remote git@github.com:vuejs/vue.git
+$ git ls-remote git@github.com:vuejs/vue.git 
+```
+
+查看当前版本库的引用列表
+
+```
 $(master/otherBranch) git ls-remote
 ```
 
-### `git clone FOO.git` 从远程服务器克隆到本地
+### 2. `git clone <网址>` 从远程服务器克隆到本地
 
 你可以为本地版本库起一个不同于远程的名字
 
@@ -102,21 +102,30 @@ eg:
 $ git clone git:aaaxxx:/projectName.git <newProjectName>
 ```
 
-### 将本地已有的工作目录推送到远程版本库作为初始化的版本
+
+### 3. `git remote` 管理远程版本库
+
+#### `git remote add`
+
+与克隆相反，也可以将本地已有的工作目录推送到远程版本库作为初始化的版本
 
 ``` bash
 $ git init
 $(master) git add .
 $(master) git commit -m "init a project"
-$(master) git remote add origin FOO.git
+$(master) git remote add origin <网址>
 ```
 
-当你的项目完成初始化后，标志符 `origin` 就指向了远程版本库地址 `FOO.git`
+这里的远程主机名默认为 `origin`
 
+### 4. `git push` 将自己的版本库推送到远程版本库
+### 5. `git pull` 将远程版本库拉取到本地
+
+[Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 
 ### 关于分支
 
-#### 新建远程分支
+#### a. 新建远程分支
 
 先在本地创建分支，再推送到远程版本库
 
@@ -136,12 +145,12 @@ $(b1) git branch -a
 
 ```
 
-#### 删除远程分支
+#### b. 删除远程分支
 
 eg:
 
 ``` bash
-$(b1) git push origin --delete b1
+$(b1) git push origin --delete b1 # 也可以写成 git push origin :b1
 $(b1) git branch -a
 
 * b1
@@ -150,71 +159,26 @@ $(b1) git branch -a
   remotes/origin/master
 ```
 
-如果你只删除远程分支而不删除本地分支，那么本地的分支修改回保存到工作目录中。
-
-``` bash
-$(b1) git status
-On branch b1
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-        modified:   gitStep3_remote.md
-
-no changes added to commit (use "git add" and/or "git commit -a")
-```
+**ps:** 如果你只删除远程分支而不删除本地分支，那么本地分支的修改会保存到工作目录中。
 
 [删除本地分支](./gitStep2_branch.md/#delete_branch)
 
-#### 拉取本地不存在的远程分支
+#### c. 拉取本地不存在的远程分支
+
 ``` bash
 $(master) git checkout -b b1
 $(b1) git pull origin b1
 ```
 
-### `git push` 将自己的版本库推送到服务器
 
-``` bash
-$ git push <远程主机名> <本地分支名>:<远程分支名>
 ```
-
-* 如果省略 `:<远程分支名>`，则表示将本地分支推送与之存在"追踪关系"的远程分支（通常两者同名），如果该远程分支不存在，则会被新建。
-
-  ``` bash
-  $ git push origin master
-  ```
-
-* 如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。
-
-  ``` bash
-  $ git push origin :master
-  # 等同于
-  $ git push origin --delete master
-  ```
-
-* 如果当前分支与远程分支之间存在追踪关系，则本地分支和远程分支都可以省略。
-
-  ``` bash
-  $ git push origin
-  ```
-
-* 将所有分支推送到远程服务器
-
-  ``` bash
-  $ git push --all origin
-  ```
-
-
-
-### `git pull` 将远程版本库的某个分支拉到本地
-
-
 ## README 参考
 
 ``` markdown
 # 标题
 
-说明，一两句话就好，要确保清晰准确地表达项目精神。这影响这读者后续的阅读体验，如果你想做的更精致些，可以把项目logo放进去。下面会继续补充理解我们代码所必须得信息。比如：
+说明，一两句话就好，要确保清晰准确地表达项目精神。这影响这读者后续的阅读体验，如果你想做的更精致些，可
+以把项目logo放进去。下面会继续补充理解我们代码所必须得信息。比如：
 
 ## 安装说明 installation instructions
 
@@ -227,7 +191,9 @@ $ git push <远程主机名> <本地分支名>:<远程分支名>
 ## 现存缺陷 known bugs
 
 
-我们在此重申没有官方规定 readme 应该怎样去写，不要可以将 readme 保持在某一长度，视具体情况而定，你可以写得很长，也可以极短。这取决于项目的具体情况。重要的是你清晰准确地向读者传递着必要信息，并**避免默认读者已具备相关的知识**。哪些必要信息是由你决定的。你可以先问自己几个问题，例如：
+我们在此重申没有官方规定 readme 应该怎样去写，不要可以将 readme 保持在某一长度，视具体情况而定，你可以
+写得很长，也可以极短。这取决于项目的具体情况。重要的是你清晰准确地向读者传递着必要信息，并**避免默认读者已
+具备相关的知识**。哪些必要信息是由你决定的。你可以先问自己几个问题，例如：
 
 1. 将环境配置好并成功运行需要哪几步
 2. 需要预先安装配置哪些东西
@@ -244,26 +210,32 @@ $ git push <远程主机名> <本地分支名>:<远程分支名>
 
 ## Contributing
 
-通常情况你会希望他人可以向你的项目贡献代码，这时你一定要声明证书信息，你可以直接写在 readme 里，也可以放置一条指向它的连接.
+通常情况你会希望他人可以向你的项目贡献代码，这时你一定要声明证书信息，你可以直接写在 readme 里，也可以放置
+一条指向它的连接.
 
-秉承开源的精神，项目潜在的贡献者需要了解的内容请写到 readme 里，简述操作步骤，代码风格等信息。这会给他们带来诸多便利。
+秉承开源的精神，项目潜在的贡献者需要了解的内容请写到 readme 里，简述操作步骤，代码风格等信息。这会给他们带
+来诸多便利。
 
 ## Code Status
 
-有一些类似代码检查的服务，能为你的 readme 引入名为 shields 的特殊标记, 这些工具由第三方提供。帮助用户了解有关的代码信息。如果你还不太明白，不要在意。我刚开始写文档的时候也为此感到困惑。认为自己必须引入这种东西。在你的代码包含了很多测试时。shields确实有所帮助，但最开始的时候可以忽略他们。
+有一些类似代码检查的服务，能为你的 readme 引入名为 shields 的特殊标记, 这些工具由第三方提供。帮助用户了解
+有关的代码信息。如果你还不太明白，不要在意。我刚开始写文档的时候也为此感到困惑。认为自己必须引入这种东西。在你
+的代码包含了很多测试时。shields确实有所帮助，但最开始的时候可以忽略他们。
 
 
 记住别让事情变得过分复杂，随着代码的增长去更新文档，只在必要的时候加入新的信息
 
+> 内容出自 udacity 的 Markdown 教程
 ```
 
 
-## exLink
+<h2 id="ex-link">exLink</h2>
 
 - gitignore
   * [自动生成 gitignore](https://www.gitignore.io/)
   * [How to use Git for Unity source control? - stackoverflow](https://stackoverflow.com/questions/18225126/how-to-use-git-for-unity-source-control)
 
+- [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 
 
 
