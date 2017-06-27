@@ -127,6 +127,7 @@ $ git commit --amend -m "add Branch.md"
 
 ps: 如果你又在工作目录新增了文件，那么此文件在远程版本库没有被追踪，那我们还是要执行 `add` 命令，并重新提交
 
+
 #### 回退：
   - `git reset --soft HEAD^` 保留工作区文件，保留 git add，取消 git commit
   - `git reset (--mixed) HEAD^` 保留工作区文件，取消 git add，取消 git commit
