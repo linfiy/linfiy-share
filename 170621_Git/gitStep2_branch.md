@@ -36,7 +36,7 @@
 1. `git branch <branchName>` 创建一个新的分支
 2. `git checkout -b <branchName>` 创建一个分支，并切换到这个新的分支上
 
-### 4. `git branch -D <branchName>` 删除分支
+<h3 id="delete_branch">4. `git branch -D <branchName>` 删除分支</h3>
 
 ps: 不能删除当前分支
 
