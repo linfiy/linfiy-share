@@ -8,6 +8,8 @@
 
 ## 目录
 
+- [Chrome Tips](./170712_Chrome/README.md) - wby
+- [toLua](./170703_ToLua/ToLua.md) - xjw
 - [Git](./170621_Git/gitStep1_base.md) - wby
 - [Socket](./170620_socket/Socket.md) - yzm
 - [Markdown](./170616_markdown/README.md) - wby
