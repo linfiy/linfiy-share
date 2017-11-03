@@ -8,6 +8,7 @@
 
 ## 目录
 - [Unity TimeLine](./171101_unityTimeLine/README.md) - zjt
+- [Unity 3DMaxAnimator](./171103_3DMaxAnimator/README.md) - cxx
 - [3DMax基础](./171027_3DMax/README.md) - wk
 - [制作图片字体](./171026_BitmapFont/README.md) - wby
 - [Json](./170710_Json/Json.md) - zl
