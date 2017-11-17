@@ -3,7 +3,7 @@
     FXMaker是一款Unity特效制作插件。不但有超过300种效果预制体，还可以自己制作效果。包含Mesh Effect 和Particle Effect。  
     优点：资源库大，可以将消耗资源非常多的粒子效果转换为帧动画效果。当然也可以直接用不转帧动画的效果，这种效果是画面最好的，但是对显卡开销大。帧动画显卡开销小，占内存大，适合移动平台。  
 ### 使用步骤
-    见FXMaker使用手册   
+[见FXMaker使用手册](FXMaker使用手册.docx)   
 ### 特效转换
 * 将消耗资源非常多的粒子效果转换为帧动画效果。   
 1. 选中一个粒子特效   
@@ -28,3 +28,5 @@
 ![10](PICTURE/10.PNG)    
 2. Build Sprite时会报错，因为项目中没有USerSprite文件夹，需要新创建一个    
 ![11](PICTURE/11.PNG)    
+## AnimationCurve
+[AnimationCurve](AnimationCurve.md)使用示例
